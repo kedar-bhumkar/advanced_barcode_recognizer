@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Barcode Scanner</h1>
+        <div class="upload-section">
+            <label for="imageUpload" class="upload-label">
+                <span>Upload Image with Barcode</span>
+                <input type="file" id="imageUpload" accept="image/*">
+            </label>
+        </div>
+        
+        <div class="preview-section">
+            <div class="image-preview">
+                <h2>Image Preview</h2>
+                <div id="scanner-container">
+                    <img id="preview" src="#" alt="Preview" style="display: none;">
+                    <canvas id="scanCanvas"></canvas>
+                </div>
+            </div>
+            
+            <div class="result-section">
+                <h2>Recognition Result</h2>
+                <div id="status">Upload an image or use camera to start recognition</div>
+                <div id="result"></div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h3>How It Works</h3>
+            <p>This application uses ZXing (Zebra Crossing), a powerful barcode scanning library, to detect and decode barcodes from images or your device camera.</p>
+            <p>For best results:</p>
+            <ul>
+                <li>Use clear, well-lit images or good lighting when using camera</li>
+                <li>Ensure the barcode is in focus</li>
+                <li>Position the barcode to be as straight as possible</li>
+                <li>Hold the camera steady when scanning with device camera</li>
+                <li>Supported formats: QR Code, Data Matrix, UPC, EAN, Code 128, Code 39, ITF, and more</li>
+            </ul>
+        </div>
+        
+        <div class="troubleshooting-section">
+            <h3>Troubleshooting</h3>
+            <p>If you're having trouble with barcode recognition:</p>
+            <ol>
+                <li><strong>Image Quality:</strong> Make sure your image is clear, well-lit, and the barcode is in focus.</li>
+                <li><strong>Camera Position:</strong> When using the camera, hold it steady and ensure good lighting.</li>
+                <li><strong>Barcode Type:</strong> This scanner supports both 1D barcodes (EAN, UPC, Code128, etc.) and 2D barcodes (QR Code, Data Matrix).</li>
+                <li><strong>Orientation:</strong> ZXing can detect barcodes in various orientations, but straight alignment may improve results.</li>
+                <li><strong>Contrast:</strong> Ensure there's good contrast between the barcode and background.</li>
+                <li><strong>Size:</strong> The barcode should be a reasonable size in the image - not too small or too large.</li>
+                <li><strong>Different Image:</strong> If all else fails, try a different image of the barcode.</li>
+                <li><strong>Camera Permissions:</strong> Make sure you've granted camera permissions if using the camera feature.</li>
+            </ol>
+            <p>Red boxes indicate detected barcode areas.</p>
+        </div>
+    </div>
+
+    <!-- Load ZXing library -->
+    <script src="https://unpkg.com/@zxing/library@latest"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
